@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'Roboto', sans-serif;
+          src: url(/fonts/roboto/Roboto-Medium.eot);
+          src: url(/fonts/roboto/Roboto-Medium.woff);
+          src: url(/fonts/roboto/Roboto-Medium.ttf);
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #ed1717;
+  color: #fff;
+}
+
+.time {
+  font-size: 36px;
+  color: #fff;
+  font-weight: 500;
+}
+.time-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  padding-left: 70px;
+}
+  #control-btn {
+  width: 100px;
+  height: 100px;
+  font-size: 33px;
+  background-color: inherit;
+}
+#reset-btn {
+  width: 150px;
+  height: 60px;
+  font-size: 26px;
+  background-color: inherit;
+  margin: 0px auto;
+}
+
+svg {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: white;
+  fill: none;
+  animation: countdown 11s linear infinite forwards;
+}

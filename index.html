@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pomodoro Clock</title>
+    <link rel="stylesheet" href="libs/css/materialize.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col m12">
+          <h3 class="center-align">Pomodoro Clock</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m6 time-cont">
+          <div class="time">
+            <button class="btn-floating btn-large red minus">- </button> <span class="pom-work"> 25:00 </span> <button class="btn-floating btn-large red plus">+</button>
+          </div>
+        </div>
+        <div class="col m6 time-cont">
+          <div class="time">
+            <button class="btn-floating btn-large red minus">- </button> <span class="pom-rest"> 05:00 </span> <button class="btn-floating btn-large red plus">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m12">
+          <div class="countdown valign-wrapper">
+            <button type="button" class="btn-floating btn-large" id="control-btn">start</button>
+            <!-- <svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <title>Layer 1</title>
+                <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none" />
+              </g>
+            </svg> -->
+          </div>
+
+
+          <!-- <svg>
+              <circle r="100" cx="125" cy="125"></circle>
+              <pre>
+                  https://codepen.io/carsy/pen/VvqJwm
+              </pre>
+          </svg> -->
+
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m12">
+          <div class="valign-wrapper">
+            <button type="button" class="btn waves-effect waves-light" id="reset-btn">reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!--Container End-->
+    </div>
+
+    <script type="text/javascript" src="index.js">
+
+    </script>
+  </body>
+</html>
