@@ -65,7 +65,7 @@ svg circle {
   animation-name: countdown;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-duration: 51s;
+  /* animation-duration: 100s; */
 }
 
 @keyframes countdown {
