@@ -48,7 +48,7 @@ window.onload = function() {
 
 };
 
-
+// Increase the timer count
 function incrementCount(time) {
   let ipTime = time.split(':');
   let formatNum = parseInt(ipTime[0]);
@@ -61,6 +61,7 @@ function incrementCount(time) {
   return ipTime.join(':').toString();
 }
 
+// Decrease the timer count
 function decrementCount(time) {
   let sTime = time.split(':');
   let formatNum = parseInt(sTime[0]);
@@ -73,6 +74,7 @@ function decrementCount(time) {
   return sTime.join(':').toString();
 }
 
+// Prepare the timer wrapper
 function prepareTimer(workTime, restTime) {
   let wTime = parseInt(workTime) * 60;
   let rTime = parseInt(restTime) * 60;
@@ -88,15 +90,14 @@ function prepareTimer(workTime, restTime) {
   }
 }
 
+// Timer init
 function startTimer(duration, display, callback) {
   let timer = duration;
   let minutes = null;
   let seconds = null;
 
   var timerCircle = document.querySelectorAll('svg circle');
-  timerCircle[0].animate({
-    duration: timer
-  });
+  timerCircle[0].style.animationDuration = timer + 's';
   
   let intervalId = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
