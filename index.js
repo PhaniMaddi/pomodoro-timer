@@ -86,7 +86,13 @@ function prepareTimer(workTime, restTime) {
   
   function startRestTimer() {
     clearInterval(refIntervalId);
-    startTimer(rTime, rTimeDisplay, null);
+    manageClockPulse(true);
+    var restIntervalId = startTimer(rTime, rTimeDisplay, finishActivity);
+
+    function finishActivity() {
+      clearInterval(restIntervalId);
+      manageClockPulse(false);
+    }
   }
 }
 
@@ -118,4 +124,18 @@ function startTimer(duration, display, callback) {
   }, 1000);
 
   return intervalId;
+}
+
+// start or stop Clock Pluse
+function manageClockPulse(start) {
+  var pulseSvg = document.querySelectorAll("svg.pulse-svg .first-circle, svg.pulse-svg .second-circle, svg.pulse-svg .third-circle");
+  if(start) {
+    for (let i = 0; i < pulseSvg.length; i++) {
+      pulseSvg[i].style.display = "block";
+    }
+  } else {
+    for (let i = 0; i < pulseSvg.length; i++) {
+      pulseSvg[i].style.display = "none";
+    }
+  }
 }
