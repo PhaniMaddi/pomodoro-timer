@@ -48,7 +48,7 @@ window.onload = function() {
 
 };
 
-
+// Increase the timer count
 function incrementCount(time) {
   let ipTime = time.split(':');
   let formatNum = parseInt(ipTime[0]);
@@ -61,6 +61,7 @@ function incrementCount(time) {
   return ipTime.join(':').toString();
 }
 
+// Decrease the timer count
 function decrementCount(time) {
   let sTime = time.split(':');
   let formatNum = parseInt(sTime[0]);
@@ -73,6 +74,7 @@ function decrementCount(time) {
   return sTime.join(':').toString();
 }
 
+// Prepare the timer wrapper
 function prepareTimer(workTime, restTime) {
   let wTime = parseInt(workTime) * 60;
   let rTime = parseInt(restTime) * 60;
@@ -84,19 +86,24 @@ function prepareTimer(workTime, restTime) {
   
   function startRestTimer() {
     clearInterval(refIntervalId);
-    startTimer(rTime, rTimeDisplay, null);
+    manageClockPulse(true);
+    var restIntervalId = startTimer(rTime, rTimeDisplay, finishActivity);
+
+    function finishActivity() {
+      clearInterval(restIntervalId);
+      manageClockPulse(false);
+    }
   }
 }
 
+// Timer init
 function startTimer(duration, display, callback) {
   let timer = duration;
   let minutes = null;
   let seconds = null;
 
   var timerCircle = document.querySelectorAll('svg circle');
-  timerCircle[0].animate({
-    duration: timer
-  });
+  timerCircle[0].style.animationDuration = timer + 's';
   
   let intervalId = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
@@ -117,4 +124,18 @@ function startTimer(duration, display, callback) {
   }, 1000);
 
   return intervalId;
+}
+
+// start or stop Clock Pluse
+function manageClockPulse(start) {
+  var pulseSvg = document.querySelectorAll("svg.pulse-svg .first-circle, svg.pulse-svg .second-circle, svg.pulse-svg .third-circle");
+  if(start) {
+    for (let i = 0; i < pulseSvg.length; i++) {
+      pulseSvg[i].style.display = "block";
+    }
+  } else {
+    for (let i = 0; i < pulseSvg.length; i++) {
+      pulseSvg[i].style.display = "none";
+    }
+  }
 }
