@@ -7,7 +7,7 @@ window.onload = function() {
     let restTime = document.getElementsByClassName('pom-rest')[0].innerText || 05;
 
     if(this.innerHTML === 'start') {
-      // Initiae the timer
+      // Initiate the timer
       prepareTimer(workTime, restTime);
       this.innerHTML = 'stop';
     } else {
@@ -102,7 +102,7 @@ function startTimer(duration, display, callback) {
   let minutes = null;
   let seconds = null;
 
-  var timerCircle = document.querySelectorAll('svg circle');
+  let timerCircle = document.querySelectorAll('svg circle');
   timerCircle[0].style.animationDuration = timer + 's';
   
   let intervalId = setInterval(function () {
